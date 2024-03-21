@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios';
 
-const apiBaseRoute = 'http://localhost:8080';
+const apiBaseRoute = 'https://kickadmin.onrender.com';
 
 export function postWithoutHeaderRequestAPI({ url = '', data = {} }) {
     return postRequestWithoutHeaderCall(url, data);
