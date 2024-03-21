@@ -83,8 +83,6 @@ export default function ComplexTable() {
     (category && category.pagination && category.pagination.total) || 0;
   const items = category && category.data ? category.data : [];
   useEffect(() => {
-    console.log('isFetching', isFetching, category)
-
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
@@ -299,7 +297,6 @@ export default function ComplexTable() {
   const [searchString, setSearchString] = useState("");
   // const [currentData ,setCurrentdata] = useState("")
   let timeOut:any = 0;
-  console.log('pagination logic', limit, page)
   //orderby
   const [order, setOrder] = useState("");
   const [orderBy, setOrderBy] = useState("");
@@ -372,6 +369,12 @@ export default function ComplexTable() {
     isStatusUpdated,
     category_validation_error,
   ]);
+
+  
+  useEffect(() => {
+   fetchSettingsData(page, limit, order, orderBy, searchString);
+  }, []);
+
   useEffect(() => {
 
     if (category_success || category_error || isUpdated || isdeleted || isStatusUpdated) {
